@@ -1,0 +1,10 @@
+# Python dependencies
+fastapi
+uvicorn
+sqlalchemy
+pymysql
+python-dotenv
+bcrypt==3.2.0
+passlib[bcrypt]
+python-jose
+pydantic[email]
