@@ -12,6 +12,8 @@ router = APIRouter()
 # def test_auth():
 #     return {"message": "Auth route working ✅"}
 
+
+
 # REGISTER
 @router.post("/register")
 def register(data: RegisterSchema, db: Session = Depends(get_db)):
