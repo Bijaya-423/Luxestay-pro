@@ -70,3 +70,21 @@ def update_floor(id: int, data: FloorCreate, db: Session = Depends(get_db)):
 def delete_floor(id: int, db: Session = Depends(get_db)):
     return room_controller.delete_floor(id, db)
     
+
+# #-----------------Room Amenities----------------------
+
+# @router.get("/amenities")
+# def get_amenities(db: Session = Depends(get_db)):
+#     return room_controller.get_amenities(db)
+
+# @router.post('/amenities')
+# def create_amenity(data: AmenityCreate, db: Session = Depends(get_db)):
+#     return room_controller.create_amenity(data, db)
+
+# @router.put('/amenities/{id}')
+# def update_amenity(id: int, data: AmenityCreate, db: Session = Depends(get_db)):
+#     return room_controller.update_amenity(id, data, db)
+
+# @router.delete('/amenities/{id}')
+# def delete_amenity(id: int, db: Session = Depends(get_db)):
+#     return room_controller.delete_amenity(id, db)
