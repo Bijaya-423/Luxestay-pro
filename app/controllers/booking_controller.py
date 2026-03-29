@@ -6,7 +6,7 @@ from datetime import date
 
 
 #---------------------Availability--------------------------
-def get_available_rooms(db: Session, check_out: date, check_in: date):
+def get_available_rooms(check_in: date, check_out: date, db: Session):
     
     bookings = db.query(Booking).filter(Booking.check_in < check_out, Booking.check_out > check_in).all()
 
@@ -77,7 +77,8 @@ def delete_booking(id: int, db: Session):
     return {"message": "Delete Booking Successfully."}
 
 
-# #---------------------User Bookings--------------------------   
+'''
+#---------------------User Bookings--------------------------   
 
 # def get_user_bookings(user_id: int, db: Session):
 #     return db.query(Booking).filter(Booking.user_id == user_id).all()
@@ -241,3 +242,4 @@ def delete_booking(id: int, db: Session):
 #     return {"message": "Delete Booking Successfully."}
 
 
+'''
