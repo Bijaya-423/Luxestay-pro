@@ -9,7 +9,7 @@ router = APIRouter()
 
 #-----------Get Status--------------
 @router.get("/status")
-def get_status(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+def get_status(db: Session = Depends(get_db), user = Depends(get_current_user)):
     return housekeeping_controller.get_all_status(db)
 
 
@@ -18,6 +18,5 @@ def get_status(db: Session = Depends(get_db), current_user: User = Depends(get_c
 def update_status(room_id: int,
                     data: RoomStatusUpdate,
                     db: Session = Depends(get_db),
-                    current_user: User = Depends(get_current_user)):
+                    user = Depends(get_current_user)):
     return housekeeping_controller.update_room_status(room_id, data.status, db)
-    
