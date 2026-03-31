@@ -28,7 +28,7 @@ def get_task(id: int, data, db: Session):
     return task
 
 #-------------------update----------------------
-def update_task(id: int, data, db: Session):
+def update_task_one(id: int, data, db: Session):
     task = db.query(HouseKeepingTask).filter(HouseKeepingTask.id == id).first()
 
     if not task:
@@ -51,26 +51,26 @@ def delete_task(id: int, db: Session):
 
     db.delete(task)
     db.commit(
-        
+
     )
 
     return {"message": "Deleted successfully."}
 
 
 #------------------filter--------------------------
-def filter_tasks(data, db: Session):
-    query = db.query(HouseKeepingTask)
+# def filter_tasks(data, db: Session):
+#     query = db.query(HouseKeepingTask)
 
-    if data.room_id:
-        query = query.filter(HouseKeepingTask.room_id == data.room_id)
+#     if data.room_id:
+#         query = query.filter(HouseKeepingTask.room_id == data.room_id)
     
-    if data.staff_id:
-        query = query.filter(HouseKeepingTask.staff_id == data.staff_id)
+#     if data.staff_id:
+#         query = query.filter(HouseKeepingTask.staff_id == data.staff_id)
     
-    if data.status:
-        query = query.filter(HouseKeepingTask.status == data.status)
+#     if data.status:
+#         query = query.filter(HouseKeepingTask.status == data.status)
     
-    if data.task_date:
-        query = query.filter(HouseKeepingTask.task_date == data.task_date)
+#     if data.task_date:
+#         query = query.filter(HouseKeepingTask.task_date == data.task_date)
     
-    return query.all()
+#     return query.all()
