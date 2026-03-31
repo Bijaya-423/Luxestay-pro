@@ -50,7 +50,27 @@ def delete_task(id: int, db: Session):
         raise HTTPException(status_code=404, detail="Task not found.")
 
     db.delete(task)
-    db.commit()
+    db.commit(
+        
+    )
 
     return {"message": "Deleted successfully."}
+
+
+#------------------filter--------------------------
+def filter_tasks(data, db: Session):
+    query = db.query(HouseKeepingTask)
+
+    if data.room_id:
+        query = query.filter(HouseKeepingTask.room_id == data.room_id)
     
+    if data.staff_id:
+        query = query.filter(HouseKeepingTask.staff_id == data.staff_id)
+    
+    if data.status:
+        query = query.filter(HouseKeepingTask.status == data.status)
+    
+    if data.task_date:
+        query = query.filter(HouseKeepingTask.task_date == data.task_date)
+    
+    return query.all()
