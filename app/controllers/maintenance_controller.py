@@ -8,7 +8,7 @@ def get_requests(db: Session):
     return db.query(MaintenanceRequest).all()
 
 #-------------create-------------
-def create_request(db: Session, data):
+def create_request(data, db: Session):
     obj = MaintenanceRequest(**data.dict())
 
     db.add(obj)
@@ -52,10 +52,10 @@ def delete_request(id: int, db: Session):
     if not obj:
         raise HTTPException(status_code=404, detail="Request not found.")
 
-    obj.status = status
+    db.delete(obj)
     db.commit()
 
-    return obj
+    return {"message": "Deleted successfully."}
 
 
 # ------------------update status-------------------

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.core.database import get_db
-from app.schemas.maintenance_schema import MaintenanceCreate, MaintenanceUpdate
+from app.schemas.maintenance_schema import MaintenanceCreate, MaintenanceUpdate, StatusUpdate
 from app.controllers import maintenance_controller
 from app.dependencies.auth_dependency import get_current_user
 
@@ -36,4 +36,4 @@ def delete(id: int, db: Session = Depends(get_db), user = Depends(get_current_us
 def update_status(id: int, data: StatusUpdate, db: Session = Depends(get_db), user = Depends(get_current_user)):
     return maintenance_controller.update_status(id, data.status, db)
 
-    
+
