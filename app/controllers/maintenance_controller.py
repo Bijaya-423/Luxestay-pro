@@ -56,3 +56,16 @@ def delete_request(id: int, db: Session):
     db.commit()
 
     return obj
+
+
+# ------------------update status-------------------
+def update_status(id: int, status: str, db: Session):
+    obj = db.query(MaintenanceRequest).filter(MaintenanceRequest.id == id).first()
+
+    if not obj:
+        raise HTTPException(status_code=404, detail="request not found.")
+
+    obj.status = status
+    db.commit()
+    db.refresh(obj)
+    return obj

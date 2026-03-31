@@ -14,4 +14,4 @@ api_router.include_router(checkin_routes.router, prefix="/stay", tags=["CheckIn/
 api_router.include_router(room_rate_routes.router, prefix="/rate", tags=["Room Rates"])
 
 api_router.include_router(housekeeping_routes.router, prefix="/housekeeping", tags=["Housekeeping"])
-api_router.include_router(housekeeping_task_routes.router, prefix="/housekeeping/task", tags=["Housekeeping Task"])
+api_router.include_router(housekeeping_task_routes.router, prefix="/housekeeping", tags=["Housekeeping Task"])

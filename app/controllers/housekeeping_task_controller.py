@@ -19,8 +19,9 @@ def create_task(data, db: Session):
     db.refresh(task)
     return task
 
+
 #------------get by id -------------------
-def get_task(id: int, data, db: Session):
+def get_task(id: int, db: Session):
     task = db.query(HouseKeepingTask).filter(HouseKeepingTask.id == id).first()
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")

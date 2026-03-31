@@ -33,4 +33,3 @@ def update_task(id: int, data: TaskUpdate, db: Session = Depends(get_db), user =
 def delete_task(id: int, db: Session = Depends(get_db), user = Depends(get_current_user)):
     return housekeeping_task_controller.delete_task(id, db)
 
-    
