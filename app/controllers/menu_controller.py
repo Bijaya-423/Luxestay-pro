@@ -71,12 +71,12 @@ def update_item(id: int, data, db: Session):
     db.refresh(obj)
     return obj
 
-def delete_item(id: int, db= Session):
+def delete_item(id: int, db: Session):
     obj = db.query(MenuItem).filter(MenuItem.id == id).first()
 
     if not obj:
         raise HTTPException(status_code=404, detail="Items not found")
     
-    db.delete()
+    db.delete(obj)
     db.commit()
     return {"message": "deleted successfully."}

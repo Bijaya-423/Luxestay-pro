@@ -34,7 +34,7 @@ def get_items(db: Session = Depends(get_db), user = Depends(get_current_user)):
 
 
 @router.post("/menu-items")
-def create_item(data = MenuItemCreate, db: Session = Depends(get_db), user = Depends(get_current_user)):
+def create_item(data: MenuItemCreate, db: Session = Depends(get_db), user = Depends(get_current_user)):
     return menu_controller.create_item(data, db)
 
 @router.get("/menu-items/{id}")

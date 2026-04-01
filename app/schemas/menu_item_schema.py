@@ -9,7 +9,7 @@ class MenuItemCreate(BaseModel):
 class MenuItemUpdate(BaseModel):
     category_id: int
     name: str
-    print: float
+    price: float
     description: str | None = None
     is_available: int
 
