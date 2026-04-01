@@ -20,4 +20,4 @@ class InspectionUpdate(BaseModel):
 
 
 
-    
+
