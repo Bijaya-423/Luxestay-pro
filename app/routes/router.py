@@ -2,7 +2,8 @@ from fastapi import APIRouter
 from app.routes import user_routes, auth_routes, room_routes, booking_routes, checkin_routes, room_rate_routes
 # from app.controllers.auth_controller import get_current_user
 from app.routes import housekeeping_routes, housekeeping_task_routes
-from app.routes import maintenance_routes, inspection_routes, menu_routes, room_order_routes, restaurant_order_routes
+from app.routes import maintenance_routes, inspection_routes, menu_routes, room_order_routes, restaurant_order_routes, order_status_routes
+
 
 api_router = APIRouter()
 
@@ -23,3 +24,4 @@ api_router.include_router(room_order_routes.router, prefix="/orders", tags=["Roo
 
 api_router.include_router(restaurant_order_routes.router, prefix="/restaurant", tags=["Restaurant Orders"])
 
+api_router.include_router(order_status_routes.router, prefix="/orders", tags=["Order status"])

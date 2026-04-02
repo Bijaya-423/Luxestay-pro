@@ -5,7 +5,7 @@ from app.models.base import BaseModel
 class RestaurantOrderItem(BaseModel):
     __tablename__ = "restaurant_order_items"
 
-    order_id = Column(Integer, ForeignKey("restaurant_order.id"))
+    order_id = Column(Integer, ForeignKey("restaurant_orders.id"))
     menu_item_id = Column(Integer, ForeignKey("menu_items.id"))
 
     quantity = Column(Integer, nullable=False)

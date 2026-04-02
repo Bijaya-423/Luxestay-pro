@@ -13,7 +13,7 @@ router = APIRouter()
 
 @router.get("/restaurant-orders")
 def get_orders(db: Session = Depends(get_db), user = Depends(get_current_user)):
-    return restaurant_order_controller.get_order(db)
+    return restaurant_order_controller.get_orders(db)
 
 @router.post("/restaurant-orders")
 def create_order(data: RestaurantOrderCreate, db: Session = Depends(get_db), user = Depends(get_current_user)):
