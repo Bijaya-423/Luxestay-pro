@@ -8,27 +8,27 @@ from app.dependencies.auth_dependency import get_current_user
 
 router = APIRouter()
 
-@router.get("/folios", response_model=List[FolioResponse])
+@router.get("/folios")
 def get_all(db: Session = Depends(get_db), user = Depends(get_current_user)):
     return folio_controller.get_folios(db)
 
 
-@router.post("/folios", response_model=List[FolioResponse])
+@router.post("/folios")
 def create_folio(data: FolioCreate, db: Session = Depends(get_db), user = Depends(get_current_user)):
     return folio_controller.create_folio(data, db)
 
 
-@router.get("/folios/{id}", response_model=List[FolioResponse])
+@router.get("/folios/{id}")
 def get_folio(id: int, db: Session = Depends(get_db), user = Depends(get_current_user)):
     return folio_controller.get_folio(id, db)
 
 @router.put('/folios/{id}')
 def update_folio(id: int, data: FolioUpdate, db: Session = Depends(get_db), user = Depends(get_current_user)):
-    return folio_controller.update_folio(di, data, db)
+    return folio_controller.update_folio(id, data, db)
 
 
 @router.delete("/folios/{id}")
-def delete_folio(id: int, db: Session(get_db), user = Depends(get_current_user)):
+def delete_folio(id: int, db: Session = Depends(get_db), user = Depends(get_current_user)):
     return folio_controller.delete_folio(id, db)
 
 
