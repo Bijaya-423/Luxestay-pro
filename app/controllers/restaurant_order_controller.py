@@ -5,7 +5,7 @@ from app.models.restaurant_order_item import RestaurantOrderItem
 
 
 
-def get_order(db: Session):
+def get_orders(db: Session):
     return db.query(RestaurantOrder).all()
 
 def create_order(data, db: Session):
