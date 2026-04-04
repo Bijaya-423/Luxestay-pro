@@ -9,7 +9,7 @@ class BaseModel(Base):
     
 
     id = Column(Integer, primary_key=True, index=True)
-    created_by = Column(Integer, nullable=True)
+    created_by = Column(Integer, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     
