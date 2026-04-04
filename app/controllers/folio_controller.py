@@ -53,14 +53,6 @@ def update_folio(id: int, data, db: Session):
 
     return obj
 
-def update_folio(id: int, db: Session):
-    obj = db.query(Folio).filter(Folio.id == id).first()
-
-    if not obj:
-        raise HTTPException(status_code=404, detail="Found Not Found.")
-
-    return obj
-
 
 def delete_folio(id: int, db: Session):
     folio = db.query(Folio).filter(Folio.id == id).first()
