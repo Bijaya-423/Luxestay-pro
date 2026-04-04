@@ -30,8 +30,4 @@ api_router.include_router(order_status_routes.router, prefix="/orders", tags=["O
 
 from app.routes import folio_routes
 
-api_router.include_router(
-    folio_routes.router,
-    prefix="/billing",
-    tags=["Billing"]
-)
+api_router.include_router(folio_routes.router, prefix="/billing", tags=["Billing"])
