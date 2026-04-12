@@ -38,3 +38,6 @@ def delete_bill(id: int, db: Session = Depends(get_db), user = Depends(get_curre
 # @router.get("/restaurant-bills/{id}/pdf")
 # def get_bill_pdf(id: int, db: Session = Depends(get_db), user = Depends(get_current_user)):
 #     return restaurant_bill_controller.get_bill_pdf(id, db)
+
+
+
