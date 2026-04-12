@@ -34,3 +34,34 @@ def create_bill(data, db: Session):
 
 
 
+def get_bill(id: int, db: Session):
+    bill = db.query(RestaurantBill).filter(RestaurantBill.id == id).first()
+
+    if not bill:
+        raise HTTPException(status_code=404, "Bill not Found.")
+    
+    return bill
+
+
+def update_bill(id: int, data, db: Session):
+    bill = db.query(RestaurantBill).filter(RestaurantBill.id == id).first()
+
+    if not bill:
+        raise HTTPException(status_code=404, details="Bill not Found.")
+    
+    bill.status = data.status
+    db.commit()
+    db.refresh(bill)
+    return bill
+
+
+def delete_bill(id: int, db: Session):
+    bill = db.query(RestaurantBill).filter(RestaurantBill.id == id).first()
+
+    if not bill:
+        raise HTTPException(status_code=404, details="Bill not found.")
+
+    db.delete(bill)
+    db.commit()
+    return {"message": "Bill deleted successfully."}
+    
