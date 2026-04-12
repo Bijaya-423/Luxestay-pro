@@ -42,5 +42,3 @@ def delete_bill(id: int, db: Session = Depends(get_db), user = Depends(get_curre
 
 
 
-
-
