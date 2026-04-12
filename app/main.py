@@ -39,9 +39,9 @@ app = FastAPI(
 def root():
     return {"message": "API WORKING 🚀"}
 
-@app.get("/test")
-def test():
-    return {"ok": True}
+# @app.get("/test")
+# def test():
+#     return {"ok": True}
 
 app.include_router(api_router, prefix="/api")
 
