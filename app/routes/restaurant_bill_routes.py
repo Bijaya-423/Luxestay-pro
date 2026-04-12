@@ -40,5 +40,3 @@ def delete_bill(id: int, db: Session = Depends(get_db), user = Depends(get_curre
 #     return restaurant_bill_controller.get_bill_pdf(id, db)
 
 
-
-
