@@ -7,3 +7,4 @@ class MenuCategory(BaseModel):
     name = Column(String(50), nullable=False)
     description = Column(String(255), nullable=False)
 
+
