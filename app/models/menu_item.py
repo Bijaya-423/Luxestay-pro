@@ -13,3 +13,4 @@ class MenuItem(BaseModel):
     is_available = Column(Boolean, default=1)
 
 
+
