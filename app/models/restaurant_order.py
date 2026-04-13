@@ -9,3 +9,5 @@ class RestaurantOrder(BaseModel):
     # order_items = Column(JSON, nullable=False)
     # total_amount = Column(Float, nullable=False)
     
+
+    
