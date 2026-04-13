@@ -6,3 +6,5 @@ class RoomType(BaseModel):
 
     name = Column(String(100), nullable=False)
     description = Column(String(255), nullable=True)
+
+    
