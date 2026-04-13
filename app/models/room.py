@@ -11,4 +11,3 @@ class Room(BaseModel):
     room_type_id = Column(Integer, ForeignKey('room_types.id'))
     floor_id = Column(Integer, ForeignKey('floors.id'))
     status = Column(String(50), default="available")   # available, occupied, maintenance
-
