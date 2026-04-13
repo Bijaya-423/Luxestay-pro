@@ -13,4 +13,3 @@ class Role(Base):
     created_by = Column(Integer, default=0)
 
 
-    
