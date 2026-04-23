@@ -3,7 +3,7 @@ from app.routes import user_routes, auth_routes, room_routes, booking_routes, ch
 # from app.controllers.auth_controller import get_current_user
 from app.routes import housekeeping_routes, housekeeping_task_routes
 from app.routes import maintenance_routes, inspection_routes, menu_routes, room_order_routes, restaurant_order_routes, order_status_routes
-
+from app.routes import ai_routes
 
 api_router = APIRouter()
 
@@ -31,3 +31,4 @@ api_router.include_router(order_status_routes.router, prefix="/orders", tags=["O
 from app.routes import folio_routes
 
 api_router.include_router(folio_routes.router, prefix="/billing", tags=["Billing"])
+api_router.include_router(ai_routes.router, prefix='/ai', tags=["AI"])
