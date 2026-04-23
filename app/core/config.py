@@ -24,6 +24,3 @@ settings = Settings()
 
 
 
-
-
-
