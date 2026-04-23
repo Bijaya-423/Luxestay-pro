@@ -10,3 +10,4 @@ python-jose
 pydantic[email]
 # mangum>=0.17.0
 # aws-lambda-powertools 
+openai
