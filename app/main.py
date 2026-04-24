@@ -48,7 +48,3 @@ app.include_router(api_router, prefix="/api")
 handler = Mangum(app, lifespan="off")
 
 
-
-
-
-
