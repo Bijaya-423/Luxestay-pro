@@ -25,5 +25,3 @@ handler = Mangum(app, lifespan="off")
 
 
 
-
-
