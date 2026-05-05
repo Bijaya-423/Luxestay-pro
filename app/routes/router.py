@@ -4,11 +4,19 @@ from app.routes import user_routes, auth_routes, room_routes, booking_routes, ch
 from app.routes import housekeeping_routes, housekeeping_task_routes
 from app.routes import maintenance_routes, inspection_routes, menu_routes, room_order_routes, restaurant_order_routes, order_status_routes
 from app.routes import ai_routes
+from app.routes import role_routes
+from app.routes import permission_routes
+
 
 api_router = APIRouter()
-
+#--------------------- Role Permission --------------------------------
 api_router.include_router(auth_routes.router, prefix="/auth", tags=["Auth"])
+api_router.include_router(role_routes.router, prefix="/roles", tags=["Roles"])
 api_router.include_router(user_routes.router, prefix="/users", tags=["Users"])
+api_router.include_router(permission_routes.router, prefix="/permissions", tags=["Permissions"])
+
+#--------------------------------------------------------------------------
+
 api_router.include_router(room_routes.router, prefix="/room", tags=["Room"])
 api_router.include_router(booking_routes.router, prefix="/booking", tags=["Booking"])
 api_router.include_router(checkin_routes.router, prefix="/stay", tags=["CheckIn/CheckOut"])
