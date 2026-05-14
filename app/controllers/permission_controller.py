@@ -68,7 +68,7 @@ def assign_permission_to_role(role_id, permission_ids, db):
 
 def get_role_permissions(role_id, db):
     permissions = db.query(RolePermission).filter(RolePermission.role_id == role_id).all()
-    return Permissions
+    return permissions
 
 def update_role_permissions(role_id, permission_ids, db):
     #remove the old permissions
@@ -82,7 +82,7 @@ def update_role_permissions(role_id, permission_ids, db):
     db.commit()
     return {"message": "Permissions updated successfully."}
 
-def delete_role_permission(role_id, db):
+def delete_role_permissions(role_id, db):
     permissions = db.query(RolePermission).filter(RolePermission.role_id == role_id).all()
 
     if not permissions:
