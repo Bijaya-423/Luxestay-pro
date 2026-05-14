@@ -32,3 +32,17 @@ def delete_permission(id: int, db: Session = Depends(get_db), user = Depends(get
 @router.post("/role/{role_id}")
 def assign_permission(role_id: int, data: AssignPermissionSchema, db : Session = Depends(get_db), user = Depends(get_current_user)):
     return permission_controller.assign_permission_to_role(role_id, data.permission_ids, db)
+
+
+@router.get("/role/{role_id}")
+def get_role_permissions(role_id: int, db: Session = Depends(get_db), user = Depends(get_current_user)):
+    return permission_controller.get_role_permissions(role_id, db)
+
+@router.delete("/role/{role_id}")
+def delete_role_permissions(role_id: int, db: Session = Depends(get_db), user = Depends(get_current_user)):
+    return permission_controller.delete_role_permissions(role_id, db)
+
+@router.put("/role/{role_id}")
+def update_role_permissions(role_id: int, data: AssignPermissionSchema, db: Session=Depends(get_db), user = Depends(get_current_user)):
+    return permission_controller.update_role_permissions(role_id, data.permission_ids, db)
+
