@@ -21,7 +21,7 @@ def get_permissions(db):
     return db.query(Permission).all()
 
 
-def get_permissions(id, db):
+def get_permission(id, db):
     obj = db.query(Permission).filter(Permission.id == id).first()
 
     if not obj:
@@ -65,3 +65,32 @@ def assign_permission_to_role(role_id, permission_ids, db):
     db.commit()
     return {"message": "Permissions assigned to role."}
     
+
+def get_role_permissions(role_id, db):
+    permissions = db.query(RolePermission).filter(RolePermission.role_id == role_id).all()
+    return Permissions
+
+def update_role_permissions(role_id, permission_ids, db):
+    #remove the old permissions
+    db.query(RolePermission).filter(RolePermission.role_id == role_id).delete()
+
+    #add new permissions
+    for pid in permission_ids:
+        obj = RolePermission(role_id=role_id, permission_id=pid)
+        db.add(obj)
+    
+    db.commit()
+    return {"message": "Permissions updated successfully."}
+
+def delete_role_permission(role_id, db):
+    permissions = db.query(RolePermission).filter(RolePermission.role_id == role_id).all()
+
+    if not permissions:
+        raise HTTPException(status_code=404, detail="No permissions found.")
+    
+    db.query(RolePermission).filter(RolePermission.role_id == role_id).delete()
+
+    # for permission in permissions:
+    #     db.delete(permission)
+    db.commit()
+    return {"message": "Role permissions deleted successfully."}
