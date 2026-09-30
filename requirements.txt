@@ -12,3 +12,4 @@ pydantic[email]
 # aws-lambda-powertools 
 openai
 ollama
+
