@@ -13,3 +13,4 @@ pydantic[email]
 openai
 ollama
 
+
