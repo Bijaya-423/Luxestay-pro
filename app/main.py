@@ -4,7 +4,6 @@ from mangum import Mangum
 
 
 
-
 app = FastAPI(
     title="IFAHMS API",
     docs_url="/docs",
