@@ -9,8 +9,6 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-
-
 @app.get("/")
 def root():
     return {"message": "API WORKING 🚀"}
